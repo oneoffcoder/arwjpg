@@ -1,6 +1,6 @@
 # arwjpg
 
-A simple Python 3.6 script that converts RAW files from Sony camera to JPG files. The RAW files should have the `ARW` file extension. This project borrowed key ideas from [Python Image Converter](https://github.com/Cyb3rN4u7/Python-Image-Converter).
+A simple Python 3.6 script that converts RAW files from some Sony cameras (tested with Sony - Alpha a6300 Mirrorless Camera)  to JPG files. The RAW files should have the `ARW` file extension. This project borrowed key ideas from [Python Image Converter](https://github.com/Cyb3rN4u7/Python-Image-Converter).
 
 # Conda environment creation
 

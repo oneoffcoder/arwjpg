@@ -1,0 +1,10 @@
+name: arwjpg
+channels:
+  - anaconda
+dependencies:
+  - python=3.6
+  - pip:
+    - rawpy
+    - imageio
+    - joblib
+    - tqdm

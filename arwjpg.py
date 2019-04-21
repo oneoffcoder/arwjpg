@@ -2,11 +2,23 @@ import rawpy
 import imageio
 import argparse
 import sys
+import os
 from os import listdir
 from os.path import isfile, join
 from joblib import Parallel, delayed
 from tqdm import tqdm
 import multiprocessing
+
+
+def make_dir(dir_path):
+    """
+    Make a directory if it does not exists.
+    :param dir_path: Directory path.
+    :return: None.
+    """
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
+
 
 def convert_raw(source, target):
     """
@@ -86,6 +98,8 @@ if __name__ == "__main__":
     # python arwjpg.py -s C:/Users/super/Desktop/100MSDCF -t C:/Users/super/Desktop/out
     args = parse_args(sys.argv[1:])
     print('{} to {}'.format(args.source, args.target))
+    make_dir(args.target)
+    
     tups = get_source_target_files(args.source, args.target)
     verbosity = args.verbosity
     n_jobs = multiprocessing.cpu_count()

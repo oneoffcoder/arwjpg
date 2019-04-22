@@ -3,11 +3,14 @@ import imageio
 import argparse
 import sys
 import os
+import PIL
+import multiprocessing
+
 from os import listdir
 from os.path import isfile, join
 from joblib import Parallel, delayed
 from tqdm import tqdm
-import multiprocessing
+
 
 
 def make_dir(dir_path):
@@ -30,8 +33,9 @@ def convert_raw(source, target):
     result = 0
     try:
         with rawpy.imread(source) as raw:
-            rgb = raw.postprocess()
-            imageio.imwrite(target, rgb)
+            rgb = raw.postprocess(use_auto_wb=True)
+            # imageio.imwrite(target, rgb)
+            PIL.Image.fromarray(rgb).save(target, quality=100, optimize=True)
             result = 1	
     except:
         result = 0
@@ -99,7 +103,7 @@ if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
     print('{} to {}'.format(args.source, args.target))
     make_dir(args.target)
-    
+
     tups = get_source_target_files(args.source, args.target)
     verbosity = args.verbosity
     n_jobs = multiprocessing.cpu_count()

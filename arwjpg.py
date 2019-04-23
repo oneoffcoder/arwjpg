@@ -58,6 +58,10 @@ def parse_args(args):
         required=False, 
         type=int, 
         default=0)
+    parser.add_argument('-e', '--extension',
+        help='output extension; JPG or TIFF',
+        required=False,
+        default='JPG')
     parser.add_argument('--use_camera_wb', 
         help='whether to use the as-shot white balance values', 
         required=False, 
@@ -198,18 +202,18 @@ def get_source_files(source_dir, files):
     return source_files
 
 
-def get_target_files(target_dir, files):
+def get_target_files(target_dir, files, ext='JPG'):
     """
     :param target_dir: JPG directory path.
     :param files: List of ARW files in the ARW directory.
     :return: List of JPG target files.
     """
-    target_files = [join(target_dir, f).replace('ARW', 'JPG').replace('arw', 'JPG') for f in files]
+    target_files = [join(target_dir, f).replace('ARW', ext).replace('arw', ext) for f in files]
     target_files = [f.replace('\\', '/') for f in target_files]
     return target_files
 
 
-def get_source_target_files(source_dir, target_dir):
+def get_source_target_files(source_dir, target_dir, ext='JPG'):
     """
     :param source_dir: ARW source directory path.
     :param target_dir: JPG target directory path.
@@ -217,7 +221,7 @@ def get_source_target_files(source_dir, target_dir):
     """
     arw_files = get_arw_files(source_dir)
     source_files = get_source_files(source_dir, arw_files)
-    target_files = get_target_files(target_dir, arw_files)
+    target_files = get_target_files(target_dir, arw_files, ext)
     tups = [(s, t) for s, t in zip(source_files, target_files)]
     return tups
 
@@ -229,9 +233,9 @@ if __name__ == "__main__":
     make_dir(args.target)
 
     rawpy_params = get_rawpy_params(args)
-    print(rawpy_params)
 
-    tups = get_source_target_files(args.source, args.target)
+    ext = args.extension.upper() if args.extension.upper() == 'JPG' or args.extension.upper() == 'TIFF' else 'JPG'
+    tups = get_source_target_files(args.source, args.target, ext)
     verbosity = args.verbosity
     n_jobs = multiprocessing.cpu_count()
     results = Parallel(n_jobs=n_jobs, verbose=verbosity)(delayed(convert_raw)(tup[0], tup[1], rawpy_params) for tup in tqdm(tups))

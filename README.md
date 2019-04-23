@@ -39,7 +39,7 @@ python arwjpg.py -s C:/Users/super/Desktop/100MSDCF -t C:/Users/super/Desktop/JP
 Here is the full set of options.
 
 ```bash
-usage: arwjpg.py [-h] -s SOURCE -t TARGET [-v VERBOSITY]
+usage: arwjpg.py [-h] -s SOURCE -t TARGET [-v VERBOSITY] [-e EXTENSION]
                  [--use_camera_wb USE_CAMERA_WB] [--use_auto_wb USE_AUTO_WB]
                  [--bright BRIGHT]
                  [--median_filter_passes MEDIAN_FILTER_PASSES]
@@ -59,6 +59,8 @@ optional arguments:
                         target directory
   -v VERBOSITY, --verbosity VERBOSITY
                         verbosity
+  -e EXTENSION, --extension EXTENSION
+                        output extension; JPG or TIFF
   --use_camera_wb USE_CAMERA_WB
                         whether to use the as-shot white balance values
   --use_auto_wb USE_AUTO_WB

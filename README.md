@@ -36,6 +36,59 @@ By default, `ALL` your CPUs will be used to convert `ARW` files to `JPG` files! 
 python arwjpg.py -s C:/Users/super/Desktop/100MSDCF -t C:/Users/super/Desktop/JPG
 ```
 
+Here is the full set of options.
+
+```bash
+usage: arwjpg.py [-h] -s SOURCE -t TARGET [-v VERBOSITY]
+                 [--use_camera_wb USE_CAMERA_WB] [--use_auto_wb USE_AUTO_WB]
+                 [--bright BRIGHT]
+                 [--median_filter_passes MEDIAN_FILTER_PASSES]
+                 [--noise_thr NOISE_THR] [--dcb_enhance DCB_ENHANCE]
+                 [--four_color_rgb FOUR_COLOR_RGB]
+                 [--demosaic_algorithm DEMOSAIC_ALGORITHM]
+                 [--fbdd_noise_reduction FBDD_NOISE_REDUCTION]
+                 [--output_color OUTPUT_COLOR] [--output_bps OUTPUT_BPS]
+
+Convert ARW to JPG
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -s SOURCE, --source SOURCE
+                        source directory
+  -t TARGET, --target TARGET
+                        target directory
+  -v VERBOSITY, --verbosity VERBOSITY
+                        verbosity
+  --use_camera_wb USE_CAMERA_WB
+                        whether to use the as-shot white balance values
+  --use_auto_wb USE_AUTO_WB
+                        whether to try automatically calculating the white
+                        balance
+  --bright BRIGHT       brightness scaling
+  --median_filter_passes MEDIAN_FILTER_PASSES
+                        number of median filter passes after demosaicing to
+                        reduce color artifacts
+  --noise_thr NOISE_THR
+                        threshold for wavelet denoising (default disabled)
+  --dcb_enhance DCB_ENHANCE
+                        DCB interpolation with enhanced interpolated colors
+  --four_color_rgb FOUR_COLOR_RGB
+                        whether to use separate interpolations for two green
+                        channels
+  --demosaic_algorithm DEMOSAIC_ALGORITHM
+                        default is AHD; AAHD, AFD, AHD, AMAZE, DCB, DHT,
+                        LINEAR, LMMSE, MODIFIED_AHD, PPG, VCD,
+                        VCD_MODIFIED_AHD, VNG
+  --fbdd_noise_reduction FBDD_NOISE_REDUCTION
+                        controls FBDD noise reduction before demosaicing;
+                        Full, Light, Off
+  --output_color OUTPUT_COLOR
+                        output color space; Adobe, ProPhoto, Wide, XYZ, raw,
+                        sRGB
+  --output_bps OUTPUT_BPS
+                        8 or 16
+```
+
 # Citation
 
 ```

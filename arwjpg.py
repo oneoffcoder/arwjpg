@@ -3,9 +3,9 @@ import imageio
 import argparse
 import sys
 import os
-import PIL
 import multiprocessing
 
+from PIL import Image
 from os import listdir
 from os.path import isfile, join
 from joblib import Parallel, delayed
@@ -34,8 +34,7 @@ def convert_raw(source, target):
     try:
         with rawpy.imread(source) as raw:
             rgb = raw.postprocess(use_auto_wb=True)
-            # imageio.imwrite(target, rgb)
-            PIL.Image.fromarray(rgb).save(target, quality=100, optimize=True)
+            Image.fromarray(rgb).save(target, quality=100, optimize=True)
             result = 1	
     except:
         result = 0

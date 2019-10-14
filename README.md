@@ -1,3 +1,5 @@
+![One-Off Coder Logo](/logo.png "One-Off Coder")
+
 # arwjpg
 
 A simple Python 3.6 script that converts RAW files from some Sony cameras (tested with Sony - Alpha a6300 Mirrorless Camera)  to JPG files. The RAW files should have the `ARW` file extension. This project borrowed key ideas from [Python Image Converter](https://github.com/Cyb3rN4u7/Python-Image-Converter). If all else fails, you should use Sony's [Imaging Edge](http://support.d-imaging.sony.co.jp/app/imagingedge/en/). Imaging Edge is a great software and will likely give you superior conversion quality, however, the conversion is rather slow (images are NOT converted in parallel). In any case, `DO NOT` throw away your RAW files just because you have converted them to JPG.
@@ -120,3 +122,11 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
+
+# Contact
+
+[One-Off Coder](https://cloud.docker.com/u/oneoffcoder/) 
+* [Website](https://www.oneoffcoder.com)
+* [Twitter](https://twitter.com/oneoffcoder)
+* [Facebook](https://www.facebook.com/oneoffcoder)
+* [YouTube](https://www.youtube.com/channel/UCCCv8Glpb2dq2mhUj5mcHCQ)
